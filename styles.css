@@ -1,0 +1,459 @@
+/* Variáveis de cores */
+:root {
+    --cor-primaria: #3498db;
+    --cor-primaria-escura: #2980b9;
+    --cor-secundaria: #ecf0f1;
+    --cor-texto: #2c3e50;
+    --cor-borda: #bdc3c7;
+    --cor-fundo: #ffffff;
+    --cor-acerto: #2ecc71;
+    --cor-erro: #e74c3c;
+    --cor-destaque: #f1c40f;
+    --cor-secundaria-escura: #bdc3c7;
+}
+
+/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-secundaria);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--cor-fundo);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+}
+
+#info-prova {
+    display: flex;
+    justify-content: space-between;
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+}
+
+#timer-container {
+    text-align: center;
+    margin: 15px 0;
+}
+
+#timer {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Página de entrada */
+#entrada-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--cor-fundo);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.opcoes-carregamento {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.opcao-carregamento {
+    flex: 1;
+    min-width: 300px;
+    padding: 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    background-color: var(--cor-secundaria);
+}
+
+.opcao-carregamento h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.opcao-carregamento p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+#arquivo-json {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+}
+
+#json-texto {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.erro-mensagem {
+    background-color: var(--cor-erro);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Instruções */
+#instrucoes {
+    margin-bottom: 30px;
+}
+
+#instrucoes h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
+}
+
+#instrucoes p {
+    margin-bottom: 10px;
+}
+
+/* Questões */
+#questoes-container {
+    margin-bottom: 30px;
+}
+
+.questao {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    background-color: var(--cor-fundo);
+}
+
+.questao-header {
+    margin-bottom: 15px;
+}
+
+.questao-header h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 5px;
+}
+
+.questao-pontuacao {
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+}
+
+.questao-enunciado {
+    margin-bottom: 20px;
+}
+
+.questao-opcoes {
+    margin-bottom: 15px;
+}
+
+/* Estilos específicos para cada tipo de questão */
+/* Múltipla escolha */
+.opcao-multipla {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.opcao-multipla:hover {
+    background-color: var(--cor-secundaria);
+}
+
+.opcao-multipla.selecionada {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+.opcao-multipla.correta {
+    background-color: var(--cor-acerto);
+    color: white;
+}
+
+.opcao-multipla.incorreta {
+    background-color: var(--cor-erro);
+    color: white;
+}
+
+/* Verdadeiro ou Falso */
+.opcao-vf {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.opcao-vf label {
+    margin-left: 10px;
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.opcao-vf input {
+    margin-right: 10px;
+}
+
+/* Associação */
+.associacao-item {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.coluna-a {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--cor-secundaria);
+    border-radius: 5px;
+}
+
+.coluna-b {
+    flex: 1;
+    margin-left: 15px;
+}
+
+.coluna-b select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+}
+
+/* Ordenação */
+.ordenacao-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    cursor: move;
+}
+
+.ordenacao-container {
+    margin-bottom: 15px;
+}
+
+/* Completar lacunas */
+.completar-lacunas {
+    line-height: 2;
+}
+
+.completar-lacunas select {
+    padding: 5px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+/* Questões com imagem */
+.questao-imagem {
+    max-width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+/* Navegação entre questões */
+#navegacao-questoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-nav {
+    padding: 10px 15px;
+    background-color: var(--cor-secundaria);
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-nav:hover {
+    background-color: var(--cor-borda);
+}
+
+#contador-questoes {
+    font-weight: bold;
+}
+
+/* Botões */
+.btn-primary {
+    padding: 12px 20px;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-primaria-escura);
+}
+
+.btn-secondary {
+    padding: 12px 20px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--cor-secundaria-escura);
+}
+
+#acoes-prova {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.acoes-resultado {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Resultado */
+#resultado-container {
+    margin-top: 30px;
+}
+
+#resultado-container h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+}
+
+#pontuacao {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--cor-secundaria);
+    border-radius: 5px;
+}
+
+#resumo-questoes {
+    margin-bottom: 30px;
+}
+
+.resumo-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+}
+
+.resumo-item.acerto {
+    border-left: 5px solid var(--cor-acerto);
+}
+
+.resumo-item.erro {
+    border-left: 5px solid var(--cor-erro);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--cor-borda);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+}
+
+/* Utilitários */
+.hidden {
+    display: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    #info-prova {
+        flex-direction: column;
+    }
+    
+    .associacao-item {
+        flex-direction: column;
+    }
+    
+    .coluna-b {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .opcoes-carregamento {
+        flex-direction: column;
+    }
+    
+    .opcao-carregamento {
+        min-width: 100%;
+    }
+}

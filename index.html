@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Provas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Provas</h1>
+        </header>
+
+        <main>
+            <!-- Página de entrada para carregar JSON -->
+            <div id="entrada-container">
+                <div class="card">
+                    <h2>Bem-vindo ao Sistema de Provas</h2>
+                    <p>Carregue um arquivo JSON de prova ou cole o conteúdo JSON para começar.</p>
+                    
+                    <div class="opcoes-carregamento">
+                        <div class="opcao-carregamento">
+                            <h3>Opção 1: Carregar arquivo JSON</h3>
+                            <input type="file" id="arquivo-json" accept=".json">
+                            <button id="carregar-arquivo" class="btn-primary">Carregar Arquivo</button>
+                        </div>
+                        
+                        <div class="opcao-carregamento">
+                            <h3>Opção 2: Colar conteúdo JSON</h3>
+                            <textarea id="json-texto" placeholder="Cole aqui o conteúdo JSON da prova..."></textarea>
+                            <button id="carregar-texto" class="btn-primary">Carregar JSON</button>
+                        </div>
+                    </div>
+                    
+                    <div class="opcao-carregamento">
+                        <h3>Opção 3: Usar exemplo pré-definido</h3>
+                        <p>Use nossa prova de exemplo de Ciências para o 4º ano.</p>
+                        <button id="carregar-exemplo" class="btn-primary">Usar Exemplo</button>
+                    </div>
+                    
+                    <div id="erro-json" class="erro-mensagem hidden"></div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo da prova (inicialmente oculto) -->
+            <div id="prova-container" class="hidden">
+                <header id="prova-header">
+                    <h1 id="disciplina">Carregando prova...</h1>
+                    <div id="info-prova">
+                        <p id="serie"></p>
+                        <p id="tema"></p>
+                    </div>
+                    <div id="timer-container" class="hidden">
+                        <div id="timer">
+                            <span id="minutos">00</span>:<span id="segundos">00</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div id="instrucoes">
+                    <h2>Instruções</h2>
+                    <p>Leia atentamente cada questão e selecione a(s) resposta(s) correta(s).</p>
+                    <p>Ao finalizar, clique no botão "Finalizar Prova" para ver sua pontuação.</p>
+                    <button id="iniciar-prova" class="btn-primary">Iniciar Prova</button>
+                </div>
+
+                <div id="questoes-container" class="hidden">
+                    <!-- As questões serão carregadas dinamicamente aqui -->
+                </div>
+
+                <div id="navegacao-questoes" class="hidden">
+                    <button id="anterior" class="btn-nav">Anterior</button>
+                    <span id="contador-questoes">Questão 1 de 15</span>
+                    <button id="proxima" class="btn-nav">Próxima</button>
+                </div>
+
+                <div id="acoes-prova" class="hidden">
+                    <button id="finalizar-prova" class="btn-primary">Finalizar Prova</button>
+                </div>
+                
+                <div id="resultado-container" class="hidden">
+                    <h2>Resultado da Prova</h2>
+                    <div id="pontuacao">
+                        <p>Sua pontuação: <span id="pontos-obtidos">0</span>/<span id="pontos-totais">0</span></p>
+                        <p>Percentual de acerto: <span id="percentual">0%</span></p>
+                    </div>
+                    <div id="resumo-questoes">
+                        <!-- Resumo das questões será carregado aqui -->
+                    </div>
+                    <div class="acoes-resultado">
+                        <button id="reiniciar-prova" class="btn-primary">Refazer Prova</button>
+                        <button id="voltar-inicio" class="btn-secondary">Voltar ao Início</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Sistema de Provas - Desenvolvido para fins educacionais</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

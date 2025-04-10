@@ -1,0 +1,226 @@
+{
+  "cabecalho": {
+    "disciplina": "Ciências",
+    "serie": "4º ano do Ensino Fundamental",
+    "tema": "Transformação dos Materiais e Meio Ambiente",
+    "pontuacaoTotal": 100,
+    "temporizador": {
+      "ativo": true,
+      "tempoEmMinutos": 45
+    },
+    "feedback": {
+      "tipo": "final",
+      "mostrarGabarito": true
+    }
+  },
+  "questoes": [
+    {
+      "id": 1,
+      "tipo": "multiplaEscolha",
+      "subTipo": "unica",
+      "enunciado": "Qual das seguintes ações ajuda a reduzir a poluição do ar?",
+      "pontuacao": 6,
+      "opcoes": [
+        "Usar mais carros nas cidades",
+        "Andar de bicicleta ou a pé",
+        "Queimar lixo no quintal",
+        "Deixar as luzes acesas quando não estamos no ambiente"
+      ],
+      "gabarito": 1
+    },
+    {
+      "id": 2,
+      "tipo": "verdadeiroFalso",
+      "enunciado": "Marque verdadeiro ou falso para as afirmações sobre a água:",
+      "pontuacao": 8,
+      "opcoes": [
+        "A água pode existir nos estados sólido, líquido e gasoso.",
+        "A água poluída não pode ser tratada de nenhuma forma.",
+        "O ciclo da água é um processo natural importante para o planeta.",
+        "Economizar água não é importante, pois ela nunca acaba."
+      ],
+      "gabarito": [true, false, true, false]
+    },
+    {
+      "id": 3,
+      "tipo": "multiplaEscolha",
+      "subTipo": "multipla",
+      "enunciado": "Quais dos seguintes materiais podem ser reciclados?",
+      "pontuacao": 7,
+      "opcoes": [
+        "Papel",
+        "Vidro",
+        "Plástico",
+        "Pilhas e baterias"
+      ],
+      "gabarito": [0, 1, 2, 3]
+    },
+    {
+      "id": 4,
+      "tipo": "associacao",
+      "enunciado": "Associe cada material à sua característica principal:",
+      "pontuacao": 8,
+      "colunaA": [
+        "Madeira",
+        "Metal",
+        "Plástico",
+        "Vidro"
+      ],
+      "colunaB": [
+        "Conduz bem eletricidade e calor",
+        "Transparente e frágil",
+        "Vem de árvores",
+        "Feito de petróleo"
+      ],
+      "gabarito": [2, 0, 3, 1]
+    },
+    {
+      "id": 5,
+      "tipo": "ordenacao",
+      "enunciado": "Coloque na ordem correta as etapas do ciclo da água:",
+      "pontuacao": 6,
+      "opcoes": [
+        "Evaporação",
+        "Condensação",
+        "Precipitação",
+        "Infiltração"
+      ],
+      "gabarito": [0, 1, 2, 3]
+    },
+    {
+      "id": 6,
+      "tipo": "completarLacunas",
+      "enunciado": "Complete as frases sobre transformações dos materiais:",
+      "pontuacao": 7,
+      "texto": "Quando a água é aquecida, ela passa do estado _____ para o estado _____. Quando a água é congelada, ela passa do estado _____ para o estado _____.",
+      "opcoes": ["líquido", "gasoso", "sólido"],
+      "gabarito": [0, 1, 0, 2]
+    },
+    {
+      "id": 7,
+      "tipo": "multiplaEscolha",
+      "subTipo": "comImagem",
+      "enunciado": "Observe a imagem e identifique qual tipo de poluição está sendo mostrada:",
+      "imagem": "images/poluicao_ar.jpg",
+      "pontuacao": 6,
+      "opcoes": [
+        "Poluição do ar",
+        "Poluição da água",
+        "Poluição do solo",
+        "Poluição sonora"
+      ],
+      "gabarito": 0
+    },
+    {
+      "id": 8,
+      "tipo": "multiplaEscolha",
+      "subTipo": "unica",
+      "enunciado": "Qual é a principal causa do aquecimento global?",
+      "pontuacao": 6,
+      "opcoes": [
+        "Uso de energia solar",
+        "Emissão de gases poluentes",
+        "Reciclagem de materiais",
+        "Plantio de árvores"
+      ],
+      "gabarito": 1
+    },
+    {
+      "id": 9,
+      "tipo": "verdadeiroFalso",
+      "enunciado": "Sobre a reciclagem, marque verdadeiro ou falso:",
+      "pontuacao": 6,
+      "opcoes": [
+        "Reciclar ajuda a diminuir a quantidade de lixo nos aterros sanitários.",
+        "Todos os tipos de plástico podem ser reciclados da mesma forma.",
+        "Separar o lixo em casa é uma etapa importante para a reciclagem.",
+        "Papel sujo com alimentos pode ser reciclado normalmente."
+      ],
+      "gabarito": [true, false, true, false]
+    },
+    {
+      "id": 10,
+      "tipo": "associacao",
+      "enunciado": "Associe cada cor de lixeira ao tipo de material que deve ser descartado nela:",
+      "pontuacao": 8,
+      "colunaA": [
+        "Azul",
+        "Vermelho",
+        "Verde",
+        "Amarelo"
+      ],
+      "colunaB": [
+        "Plástico",
+        "Vidro",
+        "Metal",
+        "Papel"
+      ],
+      "gabarito": [3, 0, 1, 2]
+    },
+    {
+      "id": 11,
+      "tipo": "multiplaEscolha",
+      "subTipo": "comImagem",
+      "enunciado": "Observe a imagem do ciclo da água e identifique qual número representa a evaporação:",
+      "imagem": "images/ciclo_agua.jpg",
+      "pontuacao": 6,
+      "opcoes": [
+        "Número 1",
+        "Número 2",
+        "Número 3",
+        "Número 4"
+      ],
+      "gabarito": 0
+    },
+    {
+      "id": 12,
+      "tipo": "completarLacunas",
+      "enunciado": "Complete as frases sobre os 3Rs da sustentabilidade:",
+      "pontuacao": 6,
+      "texto": "Os 3Rs da sustentabilidade são: _____, _____ e _____.",
+      "opcoes": ["Reduzir", "Reutilizar", "Reciclar", "Replantar"],
+      "gabarito": [0, 1, 2]
+    },
+    {
+      "id": 13,
+      "tipo": "ordenacao",
+      "enunciado": "Coloque na ordem correta as etapas da decomposição de uma folha de árvore:",
+      "pontuacao": 7,
+      "opcoes": [
+        "A folha cai da árvore",
+        "Pequenos organismos começam a se alimentar da folha",
+        "A folha se desfaz em pedaços menores",
+        "A folha se transforma em nutrientes para o solo"
+      ],
+      "gabarito": [0, 2, 1, 3]
+    },
+    {
+      "id": 14,
+      "tipo": "multiplaEscolha",
+      "subTipo": "multipla",
+      "enunciado": "Quais das seguintes ações ajudam a economizar água?",
+      "pontuacao": 7,
+      "opcoes": [
+        "Fechar a torneira enquanto escova os dentes",
+        "Tomar banhos demorados",
+        "Reutilizar a água da chuva para regar plantas",
+        "Consertar vazamentos rapidamente"
+      ],
+      "gabarito": [0, 2, 3]
+    },
+    {
+      "id": 15,
+      "tipo": "multiplaEscolha",
+      "subTipo": "unica",
+      "enunciado": "Qual destes NÃO é um exemplo de recurso natural renovável?",
+      "pontuacao": 6,
+      "opcoes": [
+        "Energia solar",
+        "Petróleo",
+        "Vento",
+        "Madeira de reflorestamento"
+      ],
+      "gabarito": 1
+    }
+  ]
+}
