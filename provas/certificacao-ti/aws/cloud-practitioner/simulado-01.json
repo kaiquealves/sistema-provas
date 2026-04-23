@@ -1,0 +1,101 @@
+{
+  "cabecalho": {
+    "disciplina": "AWS Cloud Practitioner (CLF-C02)",
+    "serie": "Certificação em TI - Nível Fundamental",
+    "tema": "Fundamentos de Nuvem e Serviços Core da AWS",
+    "pontuacaoTotal": 100,
+    "temporizador": {
+      "ativo": true,
+      "tempoEmMinutos": 20
+    },
+    "feedback": {
+      "tipo": "final",
+      "mostrarGabarito": true
+    }
+  },
+  "questoes": [
+    {
+      "id": 1,
+      "tipo": "multiplaEscolha",
+      "subTipo": "unica",
+      "enunciado": "Qual é o modelo de responsabilidade que a AWS utiliza para descrever a divisão de obrigações entre o provedor e o cliente?",
+      "pontuacao": 15,
+      "opcoes": [
+        "Modelo Pay-as-You-Go",
+        "Modelo de Responsabilidade Compartilhada (Shared Responsibility Model)",
+        "Modelo Zero Trust",
+        "Modelo Well-Architected Framework"
+      ],
+      "gabarito": 1
+    },
+    {
+      "id": 2,
+      "tipo": "multiplaEscolha",
+      "subTipo": "multipla",
+      "enunciado": "Quais dos itens a seguir são pilares do AWS Well-Architected Framework?",
+      "pontuacao": 20,
+      "opcoes": [
+        "Excelência Operacional",
+        "Segurança",
+        "Localização Geográfica",
+        "Otimização de Custos"
+      ],
+      "gabarito": [0, 1, 3]
+    },
+    {
+      "id": 3,
+      "tipo": "verdadeiroFalso",
+      "enunciado": "Sobre conceitos gerais da AWS, marque verdadeiro ou falso:",
+      "pontuacao": 20,
+      "opcoes": [
+        "Uma Region da AWS é composta por múltiplas Availability Zones isoladas.",
+        "O Amazon S3 é um serviço de banco de dados relacional.",
+        "O AWS IAM permite gerenciar usuários, grupos e permissões de acesso.",
+        "O modelo de precificação da AWS exige contratos anuais obrigatórios para todos os serviços."
+      ],
+      "gabarito": [true, false, true, false]
+    },
+    {
+      "id": 4,
+      "tipo": "associacao",
+      "enunciado": "Associe cada serviço da AWS à sua categoria principal:",
+      "pontuacao": 20,
+      "colunaA": [
+        "Amazon EC2",
+        "Amazon S3",
+        "Amazon RDS",
+        "Amazon VPC"
+      ],
+      "colunaB": [
+        "Banco de Dados",
+        "Rede",
+        "Computação",
+        "Armazenamento de Objetos"
+      ],
+      "gabarito": [2, 3, 0, 1]
+    },
+    {
+      "id": 5,
+      "tipo": "multiplaEscolha",
+      "subTipo": "unica",
+      "enunciado": "Qual plano de suporte da AWS oferece um Technical Account Manager (TAM) dedicado ao cliente?",
+      "pontuacao": 15,
+      "opcoes": [
+        "Basic",
+        "Developer",
+        "Business",
+        "Enterprise"
+      ],
+      "gabarito": 3
+    },
+    {
+      "id": 6,
+      "tipo": "completarLacunas",
+      "enunciado": "Complete a frase sobre modelos de serviço em nuvem:",
+      "pontuacao": 10,
+      "texto": "O Amazon EC2 é um exemplo de _____, enquanto o AWS Lambda é um exemplo de _____.",
+      "opcoes": ["IaaS", "SaaS", "FaaS", "PaaS"],
+      "gabarito": [0, 2]
+    }
+  ]
+}

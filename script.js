@@ -4,7 +4,11 @@ let questaoAtual = 0;
 let respostas = [];
 let temporizador = null;
 let tempoRestante = 0;
-let provaExemplo = null;
+
+// Estado do catálogo
+let catalogo = null;
+let moduloAtualCatalogo = null;
+let nivelAtualCatalogo = null;
 
 // Função para carregar o arquivo JSON da prova a partir de um objeto JSON
 function carregarProvaDeObjeto(jsonObj) {
@@ -73,24 +77,175 @@ function carregarProvaDeTexto(texto) {
     }
 }
 
-// Função para carregar o arquivo JSON de exemplo
-async function carregarProvaExemplo() {
+// ===== Catálogo de provas =====
+
+// Carrega o índice do catálogo e renderiza a tela inicial de módulos
+async function carregarCatalogo() {
     try {
-        if (provaExemplo) {
-            // Se já temos o exemplo carregado, use-o diretamente
-            return carregarProvaDeObjeto(provaExemplo);
-        }
-        
-        const response = await fetch('prova_ciencias.json');
+        const response = await fetch('catalogo.json');
         if (!response.ok) {
-            throw new Error(`Erro ao carregar a prova de exemplo: ${response.status}`);
+            throw new Error(`HTTP ${response.status}`);
         }
-        
-        provaExemplo = await response.json();
-        return carregarProvaDeObjeto(provaExemplo);
+        catalogo = await response.json();
+        renderizarModulos();
     } catch (error) {
-        console.error('Erro ao carregar a prova de exemplo:', error);
-        mostrarErro('Erro ao carregar a prova de exemplo. Por favor, tente novamente ou use outra opção.');
+        console.error('Erro ao carregar o catálogo:', error);
+        const container = document.getElementById('catalogo-container');
+        container.innerHTML = '<p class="catalogo-vazio">Não foi possível carregar o catálogo. Certifique-se de servir a página via HTTP (ex.: <code>python3 -m http.server</code>).</p>';
+    }
+}
+
+function renderizarModulos() {
+    moduloAtualCatalogo = null;
+    nivelAtualCatalogo = null;
+
+    renderizarBreadcrumb([{ label: 'Catálogo', handler: null }]);
+
+    const container = document.getElementById('catalogo-container');
+    container.innerHTML = '';
+
+    const titulo = document.createElement('h3');
+    titulo.textContent = 'Módulos disponíveis';
+    container.appendChild(titulo);
+
+    const grid = document.createElement('div');
+    grid.className = 'catalogo-grid';
+
+    catalogo.modulos.forEach(modulo => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'catalogo-card';
+        card.innerHTML = `
+            <h4>${modulo.nome}</h4>
+            ${modulo.descricao ? `<p>${modulo.descricao}</p>` : ''}
+        `;
+        card.addEventListener('click', () => renderizarNiveis(modulo.id));
+        grid.appendChild(card);
+    });
+
+    container.appendChild(grid);
+}
+
+function renderizarNiveis(moduloId) {
+    moduloAtualCatalogo = catalogo.modulos.find(m => m.id === moduloId);
+    nivelAtualCatalogo = null;
+
+    renderizarBreadcrumb([
+        { label: 'Catálogo', handler: renderizarModulos },
+        { label: moduloAtualCatalogo.nome, handler: null }
+    ]);
+
+    const container = document.getElementById('catalogo-container');
+    container.innerHTML = '';
+
+    const titulo = document.createElement('h3');
+    titulo.textContent = `${moduloAtualCatalogo.rotuloNivel || 'Nível'}: escolha uma opção`;
+    container.appendChild(titulo);
+
+    const grid = document.createElement('div');
+    grid.className = 'catalogo-grid';
+
+    moduloAtualCatalogo.niveis.forEach(nivel => {
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'catalogo-card';
+        card.innerHTML = `<h4>${nivel.nome}</h4>`;
+        card.addEventListener('click', () => renderizarProvasDoNivel(nivel.id));
+        grid.appendChild(card);
+    });
+
+    container.appendChild(grid);
+}
+
+function renderizarProvasDoNivel(nivelId) {
+    nivelAtualCatalogo = moduloAtualCatalogo.niveis.find(n => n.id === nivelId);
+
+    renderizarBreadcrumb([
+        { label: 'Catálogo', handler: renderizarModulos },
+        { label: moduloAtualCatalogo.nome, handler: () => renderizarNiveis(moduloAtualCatalogo.id) },
+        { label: nivelAtualCatalogo.nome, handler: null }
+    ]);
+
+    const container = document.getElementById('catalogo-container');
+    container.innerHTML = '';
+
+    const rotuloMateria = moduloAtualCatalogo.rotuloMateria || 'Matéria';
+
+    nivelAtualCatalogo.materias.forEach(materia => {
+        const section = document.createElement('section');
+        section.className = 'catalogo-materia';
+
+        const cabecalho = document.createElement('h3');
+        cabecalho.innerHTML = `<span class="catalogo-materia-rotulo">${rotuloMateria}:</span> ${materia.nome}`;
+        section.appendChild(cabecalho);
+
+        const lista = document.createElement('ul');
+        lista.className = 'catalogo-provas-lista';
+
+        materia.provas.forEach(provaMeta => {
+            const item = document.createElement('li');
+
+            const info = document.createElement('span');
+            info.className = 'catalogo-prova-titulo';
+            info.textContent = provaMeta.titulo;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'btn-primary';
+            btn.textContent = 'Iniciar';
+            btn.addEventListener('click', () => carregarProvaDoCatalogo(provaMeta.arquivo));
+
+            item.appendChild(info);
+            item.appendChild(btn);
+            lista.appendChild(item);
+        });
+
+        section.appendChild(lista);
+        container.appendChild(section);
+    });
+}
+
+function renderizarBreadcrumb(crumbs) {
+    const bc = document.getElementById('catalogo-breadcrumb');
+    bc.innerHTML = '';
+
+    crumbs.forEach((crumb, i) => {
+        if (i > 0) {
+            const sep = document.createElement('span');
+            sep.className = 'breadcrumb-sep';
+            sep.textContent = ' › ';
+            bc.appendChild(sep);
+        }
+
+        if (crumb.handler) {
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = crumb.label;
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                crumb.handler();
+            });
+            bc.appendChild(link);
+        } else {
+            const span = document.createElement('span');
+            span.className = 'breadcrumb-current';
+            span.textContent = crumb.label;
+            bc.appendChild(span);
+        }
+    });
+}
+
+async function carregarProvaDoCatalogo(arquivoPath) {
+    try {
+        const response = await fetch(arquivoPath);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        const jsonObj = await response.json();
+        return carregarProvaDeObjeto(jsonObj);
+    } catch (error) {
+        console.error('Erro ao carregar a prova do catálogo:', error);
+        mostrarErro('Não foi possível carregar a prova selecionada. Tente novamente.');
         return false;
     }
 }
@@ -850,11 +1005,10 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarErro('Por favor, cole o conteúdo JSON da prova.');
         }
     });
-    
-    document.getElementById('carregar-exemplo').addEventListener('click', () => {
-        carregarProvaExemplo();
-    });
-    
+
+    // Carregar catálogo de provas ao iniciar
+    carregarCatalogo();
+
     // Configurar evento para o botão de iniciar prova
     document.getElementById('iniciar-prova').addEventListener('click', iniciarProva);
     
@@ -885,9 +1039,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('prova-container').classList.add('hidden');
         document.getElementById('resultado-container').classList.add('hidden');
         document.getElementById('entrada-container').classList.remove('hidden');
-        
+
         // Limpar campos
         document.getElementById('arquivo-json').value = '';
         document.getElementById('json-texto').value = '';
+
+        // Voltar à raiz do catálogo
+        if (catalogo) {
+            renderizarModulos();
+        }
     });
 });

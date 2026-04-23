@@ -1,0 +1,100 @@
+{
+  "cabecalho": {
+    "disciplina": "Microsoft Azure Fundamentals (AZ-900)",
+    "serie": "Certificação em TI - Nível Fundamental",
+    "tema": "Conceitos de Nuvem e Arquitetura Azure",
+    "pontuacaoTotal": 100,
+    "temporizador": {
+      "ativo": true,
+      "tempoEmMinutos": 20
+    },
+    "feedback": {
+      "tipo": "final",
+      "mostrarGabarito": true
+    }
+  },
+  "questoes": [
+    {
+      "id": 1,
+      "tipo": "multiplaEscolha",
+      "subTipo": "unica",
+      "enunciado": "Qual característica da computação em nuvem permite que os recursos sejam aumentados ou reduzidos automaticamente conforme a demanda?",
+      "pontuacao": 15,
+      "opcoes": [
+        "Alta disponibilidade",
+        "Elasticidade",
+        "Tolerância a falhas",
+        "Recuperação de desastres"
+      ],
+      "gabarito": 1
+    },
+    {
+      "id": 2,
+      "tipo": "multiplaEscolha",
+      "subTipo": "multipla",
+      "enunciado": "Quais modelos de implantação de nuvem a Azure suporta?",
+      "pontuacao": 20,
+      "opcoes": [
+        "Nuvem pública",
+        "Nuvem privada",
+        "Nuvem híbrida",
+        "Nuvem isolada"
+      ],
+      "gabarito": [0, 1, 2]
+    },
+    {
+      "id": 3,
+      "tipo": "verdadeiroFalso",
+      "enunciado": "Sobre a arquitetura global do Azure, marque verdadeiro ou falso:",
+      "pontuacao": 20,
+      "opcoes": [
+        "Uma Region do Azure é uma área geográfica que contém um ou mais datacenters.",
+        "Availability Zones são locais físicos separados dentro de uma Region, com energia, refrigeração e rede independentes.",
+        "Todos os serviços do Azure estão disponíveis em todas as Regions sem exceção.",
+        "Resource Groups são containers lógicos que agrupam recursos relacionados para gerenciamento."
+      ],
+      "gabarito": [true, true, false, true]
+    },
+    {
+      "id": 4,
+      "tipo": "associacao",
+      "enunciado": "Associe cada serviço Azure à sua categoria principal:",
+      "pontuacao": 20,
+      "colunaA": [
+        "Azure Virtual Machines",
+        "Azure Blob Storage",
+        "Azure SQL Database",
+        "Azure Active Directory"
+      ],
+      "colunaB": [
+        "Identidade",
+        "Computação",
+        "Banco de Dados",
+        "Armazenamento"
+      ],
+      "gabarito": [1, 3, 2, 0]
+    },
+    {
+      "id": 5,
+      "tipo": "ordenacao",
+      "enunciado": "Ordene os níveis de escopo do Azure do mais amplo ao mais específico:",
+      "pontuacao": 15,
+      "opcoes": [
+        "Subscription",
+        "Management Group",
+        "Resource",
+        "Resource Group"
+      ],
+      "gabarito": [1, 0, 3, 2]
+    },
+    {
+      "id": 6,
+      "tipo": "completarLacunas",
+      "enunciado": "Complete a frase sobre modelos de serviço:",
+      "pontuacao": 10,
+      "texto": "No modelo _____ o cliente gerencia o sistema operacional e aplicativos, enquanto no modelo _____ o provedor gerencia tudo e o cliente apenas consome o software pronto.",
+      "opcoes": ["IaaS", "PaaS", "SaaS"],
+      "gabarito": [0, 2]
+    }
+  ]
+}

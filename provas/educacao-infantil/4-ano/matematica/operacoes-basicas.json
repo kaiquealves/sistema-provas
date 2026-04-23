@@ -1,0 +1,100 @@
+{
+  "cabecalho": {
+    "disciplina": "Matemática",
+    "serie": "4º ano do Ensino Fundamental",
+    "tema": "Operações Básicas e Resolução de Problemas",
+    "pontuacaoTotal": 100,
+    "temporizador": {
+      "ativo": true,
+      "tempoEmMinutos": 30
+    },
+    "feedback": {
+      "tipo": "final",
+      "mostrarGabarito": true
+    }
+  },
+  "questoes": [
+    {
+      "id": 1,
+      "tipo": "multiplaEscolha",
+      "subTipo": "unica",
+      "enunciado": "Quanto é 125 + 247?",
+      "pontuacao": 15,
+      "opcoes": [
+        "362",
+        "372",
+        "382",
+        "472"
+      ],
+      "gabarito": 1
+    },
+    {
+      "id": 2,
+      "tipo": "multiplaEscolha",
+      "subTipo": "multipla",
+      "enunciado": "Quais das operações abaixo resultam em 24?",
+      "pontuacao": 20,
+      "opcoes": [
+        "6 × 4",
+        "3 × 8",
+        "5 × 5",
+        "48 ÷ 2"
+      ],
+      "gabarito": [0, 1, 3]
+    },
+    {
+      "id": 3,
+      "tipo": "verdadeiroFalso",
+      "enunciado": "Marque verdadeiro ou falso sobre as operações matemáticas:",
+      "pontuacao": 20,
+      "opcoes": [
+        "A ordem dos fatores não altera o produto (3 × 5 = 5 × 3).",
+        "Dividir um número por zero é possível e sempre dá zero.",
+        "Subtrair zero de qualquer número mantém o número inalterado.",
+        "7 × 0 é igual a 7."
+      ],
+      "gabarito": [true, false, true, false]
+    },
+    {
+      "id": 4,
+      "tipo": "associacao",
+      "enunciado": "Associe cada sinal ao nome correto da operação:",
+      "pontuacao": 20,
+      "colunaA": [
+        "+",
+        "−",
+        "×",
+        "÷"
+      ],
+      "colunaB": [
+        "Divisão",
+        "Adição",
+        "Multiplicação",
+        "Subtração"
+      ],
+      "gabarito": [1, 3, 2, 0]
+    },
+    {
+      "id": 5,
+      "tipo": "ordenacao",
+      "enunciado": "Coloque os números em ordem crescente:",
+      "pontuacao": 10,
+      "opcoes": [
+        "152",
+        "98",
+        "205",
+        "175"
+      ],
+      "gabarito": [1, 0, 3, 2]
+    },
+    {
+      "id": 6,
+      "tipo": "completarLacunas",
+      "enunciado": "Complete a frase sobre uma divisão:",
+      "pontuacao": 15,
+      "texto": "Em 45 ÷ 9 = 5, o número 45 é o _____, o 9 é o _____ e o 5 é o _____.",
+      "opcoes": ["dividendo", "divisor", "quociente"],
+      "gabarito": [0, 1, 2]
+    }
+  ]
+}

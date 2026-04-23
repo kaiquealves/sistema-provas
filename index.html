@@ -14,32 +14,36 @@
         </header>
 
         <main>
-            <!-- Página de entrada para carregar JSON -->
+            <!-- Página de entrada: catálogo de provas -->
             <div id="entrada-container">
                 <div class="card">
                     <h2>Bem-vindo ao Sistema de Provas</h2>
-                    <p>Carregue um arquivo JSON de prova ou cole o conteúdo JSON para começar.</p>
-                    
-                    <div class="opcoes-carregamento">
-                        <div class="opcao-carregamento">
-                            <h3>Opção 1: Carregar arquivo JSON</h3>
-                            <input type="file" id="arquivo-json" accept=".json">
-                            <button id="carregar-arquivo" class="btn-primary">Carregar Arquivo</button>
+                    <p>Escolha uma prova do catálogo abaixo ou carregue seu próprio JSON.</p>
+
+                    <section id="catalogo-secao">
+                        <nav id="catalogo-breadcrumb" aria-label="Navegação do catálogo"></nav>
+                        <div id="catalogo-container">
+                            <p class="catalogo-vazio">Carregando catálogo...</p>
                         </div>
-                        
-                        <div class="opcao-carregamento">
-                            <h3>Opção 2: Colar conteúdo JSON</h3>
-                            <textarea id="json-texto" placeholder="Cole aqui o conteúdo JSON da prova..."></textarea>
-                            <button id="carregar-texto" class="btn-primary">Carregar JSON</button>
+                    </section>
+
+                    <details class="opcoes-avancadas">
+                        <summary>Outras opções: carregar JSON próprio</summary>
+                        <div class="opcoes-carregamento">
+                            <div class="opcao-carregamento">
+                                <h3>Carregar arquivo JSON</h3>
+                                <input type="file" id="arquivo-json" accept=".json">
+                                <button id="carregar-arquivo" class="btn-primary">Carregar Arquivo</button>
+                            </div>
+
+                            <div class="opcao-carregamento">
+                                <h3>Colar conteúdo JSON</h3>
+                                <textarea id="json-texto" placeholder="Cole aqui o conteúdo JSON da prova..."></textarea>
+                                <button id="carregar-texto" class="btn-primary">Carregar JSON</button>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="opcao-carregamento">
-                        <h3>Opção 3: Usar exemplo pré-definido</h3>
-                        <p>Use nossa prova de exemplo de Ciências para o 4º ano.</p>
-                        <button id="carregar-exemplo" class="btn-primary">Usar Exemplo</button>
-                    </div>
-                    
+                    </details>
+
                     <div id="erro-json" class="erro-mensagem hidden"></div>
                 </div>
             </div>

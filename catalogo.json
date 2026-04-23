@@ -1,0 +1,84 @@
+{
+  "modulos": [
+    {
+      "id": "educacao-infantil",
+      "nome": "Educação Infantil",
+      "descricao": "Provas para o Ensino Fundamental, organizadas por ano e matéria.",
+      "rotuloNivel": "Ano",
+      "rotuloMateria": "Matéria",
+      "niveis": [
+        {
+          "id": "4-ano",
+          "nome": "4º ano do Ensino Fundamental",
+          "materias": [
+            {
+              "id": "ciencias",
+              "nome": "Ciências",
+              "provas": [
+                {
+                  "id": "transformacao-materiais",
+                  "titulo": "Transformação dos Materiais e Meio Ambiente",
+                  "arquivo": "provas/educacao-infantil/4-ano/ciencias/transformacao-materiais.json"
+                }
+              ]
+            },
+            {
+              "id": "matematica",
+              "nome": "Matemática",
+              "provas": [
+                {
+                  "id": "operacoes-basicas",
+                  "titulo": "Operações Básicas e Resolução de Problemas",
+                  "arquivo": "provas/educacao-infantil/4-ano/matematica/operacoes-basicas.json"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "certificacao-ti",
+      "nome": "Certificação em TI",
+      "descricao": "Simulados para certificações profissionais em tecnologia.",
+      "rotuloNivel": "Provedor",
+      "rotuloMateria": "Certificação",
+      "niveis": [
+        {
+          "id": "aws",
+          "nome": "AWS",
+          "materias": [
+            {
+              "id": "cloud-practitioner",
+              "nome": "Cloud Practitioner (CLF-C02)",
+              "provas": [
+                {
+                  "id": "simulado-01",
+                  "titulo": "Simulado 01 - Fundamentos de Nuvem e Serviços Core",
+                  "arquivo": "provas/certificacao-ti/aws/cloud-practitioner/simulado-01.json"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "microsoft",
+          "nome": "Microsoft Azure",
+          "materias": [
+            {
+              "id": "az-900",
+              "nome": "Azure Fundamentals (AZ-900)",
+              "provas": [
+                {
+                  "id": "simulado-01",
+                  "titulo": "Simulado 01 - Conceitos de Nuvem e Arquitetura Azure",
+                  "arquivo": "provas/certificacao-ti/microsoft/az-900/simulado-01.json"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
